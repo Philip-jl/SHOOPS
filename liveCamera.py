@@ -2,10 +2,10 @@ import cv2
 import time
 
 # Capturing video through webcam
-webcam = cv2.VideoCapture(0)
+webcam = cv2.VideoCapture(1)
 
 
-TIMER = int(20)
+TIMER = int(3)
 # Start a while loop
 while (1):
     # Reading the video from the

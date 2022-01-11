@@ -6,9 +6,9 @@ from shapedetector import ShapeDetector
 # load the image, convert it to grayscale, blur it slightly,
 # and threshold it
 
-scan = cv2.imread('shapes_testing\cropme.jpg',cv2.IMREAD_UNCHANGED) 
+scan = cv2.imread('Photos/newstrip.jpg',cv2.IMREAD_UNCHANGED) 
 
-scale_percent = 20 # percent of original size
+scale_percent = 40 # percent of original size
 width = int(scan.shape[1] * scale_percent / 100)
 height = int(scan.shape[0] * scale_percent / 100)
 dim = (width, height)
@@ -18,7 +18,7 @@ RSscan = cv2.resize(scan, dim, interpolation = cv2.INTER_AREA) #RSscan is the Re
 
 grey = cv2.cvtColor(RSscan, cv2.COLOR_BGR2GRAY)
 blurred = cv2.GaussianBlur(grey, (5, 5), cv2.BORDER_DEFAULT)
-thresh = cv2.threshold(blurred, 190, 50, cv2.THRESH_BINARY)[1]
+thresh = cv2.threshold(blurred, 100, 200, cv2.THRESH_BINARY)[1]
 
 # find contours in the thresholded image
 cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,
