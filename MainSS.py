@@ -30,7 +30,7 @@ sd = ShapeDetector()
 
 cl1= []
 cl2= []
-#contour list
+#contour lists
 
 for c in cnts:
     M = cv2.moments(c)
@@ -52,8 +52,8 @@ for c in cnts:
     RGB = np.array([(Co[2], Co[1], Co[0])])
 
     cil=[cX, cY, RGB]                                                # contour inner list
-    
-    if cY > 250:
+    				#organize the lists in order of y values. so top and bottom rows
+    if cY > 250: 		#these values will be changed with the new setup
         for y in range(0):
             cil.append(y)
         cl2.append(cil)
@@ -87,7 +87,7 @@ for j in n :
         i = i + 1
 
 mask = thresh # Create mask where white is what we want, black otherwise
-out = np.zeros_like(RSscan) # Extract out the object and place into output image
+out = np.zeros_like(RSscan) 		# Extract out the object and place into output image
 out[mask == 255] = (RSscan[mask == 255])
 
 # Now crop
@@ -96,13 +96,13 @@ out[mask == 255] = (RSscan[mask == 255])
 (bottomy, bottomx) = (np.max(y), np.max(x))
 out = out[topy:bottomy+1, topx:bottomx+1]
 
-def sort_key(ColorList): #sorting the lists x values from least to greatest
+def sort_key(ColorList): 		#sorting the lists x values from least to greatest
 	return ColorList[0]
 
 cl1.sort(key=sort_key)
 cl2.sort(key=sort_key)
 
-cl= cl2 + cl1 #combined lists
+cl= cl2 + cl1 				#combined lists
 
 print(*cl, sep = "\n")
 
