@@ -28,7 +28,8 @@ cnts = imutils.grab_contours(cnts)
 sd = ShapeDetector()
 # loop over the contours
 
-cl= []
+cl1= []
+cl2= []
 #contour list
 
 for c in cnts:
@@ -38,12 +39,6 @@ for c in cnts:
     cX = int (M["m10"]/M["m00"])                              # compute the center of the contour
     cY = int (M["m01"]/M["m00"])
     #shape = sd.detect(c)
-    
-    cil=[cX, cY]                                                # contour inner list
-
-    for y in range(0):
-        cil.append(y)
-    cl.append(cil)
 
     cv2.drawContours(RSscan, [c], -1, (0, 255, 0), 2)    	    # draw the contour and center of the shape on the image
     cv2.circle(RSscan, (cX, cY), 3, (255, 255, 255), -1)
@@ -51,6 +46,24 @@ for c in cnts:
     approx = cv2.approxPolyDP(c, 0.009 * cv2.arcLength(c, True), True)
     # Used to flatted the array containing
     # the co-ordinates of the vertices.
+    Cimg = RSscan[int(cY):int(cY+100), int(cX):int(cX+100)]
+    Co = cv2.mean(Cimg)
+    # Swap blue and red values (making it RGB, not BGR)
+    RGB = np.array([(Co[2], Co[1], Co[0])])
+
+    cil=[cX, cY, RGB]                                                # contour inner list
+    
+    if cY > 250:
+        for y in range(0):
+            cil.append(y)
+        cl2.append(cil)
+
+    elif cY < 220:
+        for y in range(0):
+            cil.append(y)
+        cl1.append(cil)
+    else:
+        print('error')    
 n = approx.ravel() 
 i = 0
 
@@ -83,7 +96,16 @@ out[mask == 255] = (RSscan[mask == 255])
 (bottomy, bottomx) = (np.max(y), np.max(x))
 out = out[topy:bottomy+1, topx:bottomx+1]
 
-print(cl)
+def sort_key(ColorList): #sorting the lists x values from least to greatest
+	return ColorList[0]
+
+cl1.sort(key=sort_key)
+cl2.sort(key=sort_key)
+
+cl= cl2 + cl1 #combined lists
+
+print(*cl, sep = "\n")
+
 
 # Show the output image
 cv2.imshow('Output', out)
