@@ -2,7 +2,6 @@
 import imutils
 import cv2
 import numpy as np
-from shapedetector import ShapeDetector
 
 # load the image, convert it to grayscale, blur it slightly,
 # and threshold it
@@ -25,12 +24,11 @@ thresh = cv2.threshold(blurred, 130, 255, cv2.THRESH_BINARY)[1]
 cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,
     cv2.CHAIN_APPROX_SIMPLE)
 cnts = imutils.grab_contours(cnts)
-sd = ShapeDetector()
 # loop over the contours
 
 cl1= []
 cl2= []
-#contour lists
+#contour list
 
 for c in cnts:
     M = cv2.moments(c)
@@ -38,11 +36,9 @@ for c in cnts:
 	    M["m00"]=1  
     cX = int (M["m10"]/M["m00"])                              # compute the center of the contour
     cY = int (M["m01"]/M["m00"])
-    #shape = sd.detect(c)
 
     cv2.drawContours(RSscan, [c], -1, (0, 255, 0), 2)    	    # draw the contour and center of the shape on the image
     cv2.circle(RSscan, (cX, cY), 3, (255, 255, 255), -1)
-	#cv2.putText(RSscan, shape, (cX, cY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2) 
     approx = cv2.approxPolyDP(c, 0.009 * cv2.arcLength(c, True), True)
     # Used to flatted the array containing
     # the co-ordinates of the vertices.
@@ -52,8 +48,8 @@ for c in cnts:
     RGB = np.array([(Co[2], Co[1], Co[0])])
 
     cil=[cX, cY, RGB]                                                # contour inner list
-    				#organize the lists in order of y values. so top and bottom rows
-    if cY > 250: 		#these values will be changed with the new setup
+    
+    if cY > 250:
         for y in range(0):
             cil.append(y)
         cl2.append(cil)
@@ -66,9 +62,6 @@ for c in cnts:
         print('error')    
 n = approx.ravel() 
 i = 0
-
-
-
 
 for j in n :
         if(i % 2 == 0):
@@ -87,7 +80,7 @@ for j in n :
         i = i + 1
 
 mask = thresh # Create mask where white is what we want, black otherwise
-out = np.zeros_like(RSscan) 		# Extract out the object and place into output image
+out = np.zeros_like(RSscan) # Extract out the object and place into output image
 out[mask == 255] = (RSscan[mask == 255])
 
 # Now crop
@@ -96,13 +89,13 @@ out[mask == 255] = (RSscan[mask == 255])
 (bottomy, bottomx) = (np.max(y), np.max(x))
 out = out[topy:bottomy+1, topx:bottomx+1]
 
-def sort_key(ColorList): 		#sorting the lists x values from least to greatest
+def sort_key(ColorList): #sorting the lists x values from least to greatest
 	return ColorList[0]
 
 cl1.sort(key=sort_key)
 cl2.sort(key=sort_key)
 
-cl= cl2 + cl1 				#combined lists
+cl= cl2 + cl1 #combined lists
 
 print(*cl, sep = "\n")
 
