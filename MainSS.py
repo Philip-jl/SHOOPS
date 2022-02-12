@@ -42,18 +42,20 @@ for c in cnts:
     approx = cv2.approxPolyDP(c, 0.009 * cv2.arcLength(c, True), True)
     # Used to flatted the array containing
     # the co-ordinates of the vertices.
-    Cimg = RSscan[int(cY):int(cY+100), int(cX):int(cX+100)]
+    Cimg = RSscan[int(cY):int(cY+100), int(cX):int(cX+100)]     #cropping image 100 pixes from the ceter square
     Co = cv2.mean(Cimg)
     # Swap blue and red values (making it RGB, not BGR)
+    hsv_bgr = cv2.cvtColor(RSscan, cv2.COLOR_BGR2HSV)
+    aH = np.mean(hsv_bgr[:,:,2])
+    aS = np.mean(hsv_bgr[:,:,1])
+    aV = np.mean(hsv_bgr[:,:,0])
+    HSV = [aH,aS,aV]                        #np.array([(aH[2],aS[1],aV[0])])     #np.array([(hsv_bgr[2], hsv_bgr[1], hsv_bgr[0])]) 
     RGB = np.array([(Co[2], Co[1], Co[0])])
-
-    cil=[cX, cY, RGB]                                                # contour inner list
-    
+    cil=[cX, cY, RGB, HSV]                                                # contour inner list
     if cY > 250:
         for y in range(0):
             cil.append(y)
         cl2.append(cil)
-
     elif cY < 220:
         for y in range(0):
             cil.append(y)
@@ -94,7 +96,6 @@ def sort_key(ColorList): #sorting the lists x values from least to greatest
 
 cl1.sort(key=sort_key)
 cl2.sort(key=sort_key)
-
 cl= cl2 + cl1 #combined lists
 
 print(*cl, sep = "\n")
