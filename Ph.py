@@ -1,31 +1,44 @@
 from contextlib import redirect_stderr
+from ctypes.wintypes import PSHORT
 import cv2 as cv
 import numpy as np
 import argparse as arg
 from MainSS import Ph_RGB 
 from MainSS import Ph_HSV
-#red
+
+PH = Ph_HSV[0]
+PS = Ph_HSV[1]
+PV = Ph_HSV[2]
+Pr = Ph_RGB[0]
+Pg = Ph_RGB[1]
+Pb = Ph_RGB[2]
+
+#color area 1
 if 
-#narrow down to find out if in the 6.0-6.5 or where
-    if #=< 6.0 <6.5
-    elif #>= 6.5 <= values close to 7
-    else #put in general range of 6.0 to 6.5
-#orange  
+	#number of if and elif will be deternimed by how many tabs are in the color area
+	if 
+		Ph_value=
+	elif
+		Ph_value=
+	else 
+		#value will be in the general range of where it is at
+		Ph_value= 
+#color area 2 
 elif
-# 2 values to test for range with
-    if #=<7 <7.5
-    elif
-    else 
-#yellow 
-elif
-# see if above or below yellow to gauge <|> 8.0
-    if 
-    else 
-#green
+	if 
+		Ph_value=
+	elif
+		Ph_value=
+	else 
+		Ph_value= 
+#color area n
 elif 
-#2 values at disposal. 
-    if 
-    elif
-    else 
+	if 
+		Ph_value=
+	elif
+		Ph_value=
+	else 
+		Ph_value= 
 
-
+else
+	Ph_value = [1000 ,'error. please manually inspect image for any opjects obstructing camera view or skewing color detection']

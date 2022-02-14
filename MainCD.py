@@ -4,13 +4,13 @@ import cv2 as cv
 import numpy as np
 import argparse as arg
 import MainSS 
-import Aluminium as alum
-import Bromine as brom
-import Copper as copp
-import Iron as iron
-import Lead as lead
-import Mercury as merc
+import Aluminium as Alum
+import Bromine as Brom
+import Copper as Copp
+import Iron
+import Lead as Lead
+import Mercury as Merc
 import Ph 
-import Sulfate as sulf
+import Sulfate as Sulf
 
-List_of_Values = [Ph.ph_val,iron.iron_val,_val,_val,_val,_val,_val]
+List_of_Values = [Ph.Ph_value,Iron.Iron_value,Lead.Lead_value,Copp.Copp_value,Alum.Alum_value,Merc.Merc_value,Sulf.Sulf_value]
