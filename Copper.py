@@ -12,31 +12,20 @@ Cg = Copp_RGB[1]
 Cb = Copp_RGB[2]
 
 #color area 1
-if 
-	#number of if and elif will be deternimed by how many tabs are in the color area
-	if 
-		Copp_value=
-	elif
-		Copp_value=
-	else 
-		#value will be in the general range of where it is at
-		Copp_value= 
+if CH > 40 and CH <= 50:
+	Copp_value= 0
 #color area 2 
-elif
-	if 
-		Copp_value=
-	elif
-		Copp_value=
-	else 
-		Copp_value= 
+elif CH >= 30 and CH <= 40:
+	Copp_value= 1
 #color area n
-elif 
-	if 
-		Copp_value=
-	elif
-		Copp_value=
-	else 
-		Copp_value= 
-
-else
+elif CH >= 70 and CH <=80:
+	Copp_value= 10
+elif CH >= 200 and CH <= 212:
+	Copp_value= 30
+#color area n
+elif CH > 212 and CH <220:
+	Copp_value= 100
+elif CH >=220 and CH <=230:
+	Copp_value= 300
+else:
 	Copp_value = [1000 ,'error. please manually inspect image for any opjects obstructing camera view or skewing color detection']

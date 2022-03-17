@@ -11,32 +11,9 @@ Ar = Alum_RGB[0]
 Ag = Alum_RGB[1]
 Ab = Alum_RGB[2]
 
-#color area 1
-if 
-	#number of if and elif will be deternimed by how many tabs are in the color area
-	if 
-		Alum_value=
-	elif
-		Alum_value=
-	else 
-		#value will be in the general range of where it is at
-		Alum_value= 
-#color area 2 
-elif
-	if 
-		Alum_value=
-	elif
-		Alum_value=
-	else 
-		Alum_value= 
-#color area n
-elif 
-	if 
-		Alum_value=
-	elif
-		Alum_value=
-	else 
-		Alum_value= 
+if AH >= and AH <= :
 
-else
+elif AH >= and AH <= :
+
+else:
 	Alum_value = [1000 ,'error. please manually inspect image for any opjects obstructing camera view or skewing color detection']

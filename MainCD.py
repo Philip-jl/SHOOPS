@@ -13,4 +13,6 @@ import Mercury as Merc
 import Ph 
 import Sulfate as Sulf
 
-List_of_Values = [Ph.Ph_value,Iron.Iron_value,Lead.Lead_value,Copp.Copp_value,Alum.Alum_value,Merc.Merc_value,Sulf.Sulf_value]
+List_of_Values = [Ph.Ph_value]#,Iron.Iron_value,Lead.Lead_value,Copp.Copp_value,Alum.Alum_value,Merc.Merc_value,Sulf.Sulf_value]
+
+print(Ph.Ph_value)

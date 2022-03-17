@@ -12,31 +12,33 @@ Mg = Merc_RGB[1]
 Mb = Merc_RGB[2]
 
 #color area 1
-if 
-	#number of if and elif will be deternimed by how many tabs are in the color area
-	if 
-		Merc_value=
-	elif
-		Merc_value=
-	else 
-		#value will be in the general range of where it is at
-		Merc_value= 
+if MH >= 315 and MH <= 325:
+	if MH >= 315 and MH <= 325:
+		Merc_value= 0
+	else:
+		Merc_value= 0
 #color area 2 
-elif
-	if 
-		Merc_value=
-	elif
-		Merc_value=
-	else 
-		Merc_value= 
-#color area n
-elif 
-	if 
-		Merc_value=
-	elif
-		Merc_value=
-	else 
-		Merc_value= 
-
-else
+elif MH >= 213 and MH <= 217:
+	if MH >= 213 and MH <= 217:
+		Merc_value= 0.002
+	else:
+		Merc_value= 0.002
+elif MH >= 277 and MH <= 293:
+	if Mg >= 160 and Mg <= 170:
+ 		Merc_value = 0.005
+	elif Mg >= 140 and Mg <= 150:
+		Merc_value = 0.01
+	elif Mg >= 90 and Mg <= 110:
+		Merc_value = 0.02
+	else:
+		Merc_value=0.02
+elif MH >= 250 and MH <= 260:
+	if Mr <= 90 and Mr >= 103:
+		Merc_value = 0.04
+	elif Mr <= 48 and Mr >= 60:
+		Merc_value = 0.08
+	else:
+		Merc_value=0.08
+else:
 	Merc_value = [1000 ,'error. please manually inspect image for any opjects obstructing camera view or skewing color detection']
+print("Mercury value is", Merc_value)
