@@ -12,31 +12,22 @@ Bg = Brom_RGB[1]
 Bb = Brom_RGB[2]
 
 #color area 1
-if 
-	#number of if and elif will be deternimed by how many tabs are in the color area
-	if 
-		Brom_value=
-	elif
-		Brom_value=
-	else 
-		#value will be in the general range of where it is at
-		Brom_value= 
+if BH > 250 and BH <= 266: 
+	Brom_value = 0 
+	
 #color area 2 
-elif
-	if 
-		Brom_value=
-	elif
-		Brom_value=
+elif BH > 200 and BH < 210:
+	
+	if BS > 6 and BS <= 20:
+		Brom_value= 1
+	elif BS > 25 and BS <= 39:
+		Brom_value= 5
+	elif BS > 66 and BS <= 80:
+		Brom_value= 10
 	else 
-		Brom_value= 
-#color area n
-elif 
-	if 
-		Brom_value=
-	elif
-		Brom_value=
-	else 
-		Brom_value= 
+		Brom_value= 20
+
+
 
 else
 	Brom_value = [1000 ,'error. please manually inspect image for any opjects obstructing camera view or skewing color detection']
