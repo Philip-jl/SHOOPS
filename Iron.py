@@ -12,23 +12,18 @@ Ig = Iron_RGB[1]
 Ib = Iron_RGB[2]
 
 #color area 1
-if 
-	#number of if and elif will be deternimed by how many tabs are in the color area
-	if 
-		Iron_value=
-	elif
-		Iron_value=
-	else 
-		#value will be in the general range of where it is at
-		Iron_value= 
+if IH > 316 and IH <= 324
+
+	Iron_value= 0
+	
 #color area 2 
-elif
-	if 
-		Iron_value=
-	elif
-		Iron_value=
-	else 
-		Iron_value= 
+elif IH > 351 and IH <= 359	
+
+	Iron_value= 0.3
+	
+elif IH > 3 and IH <= 11	
+
+	Iron_value= 0.5
 #color area n
 elif 
 	if 
