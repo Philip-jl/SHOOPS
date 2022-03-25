@@ -25,13 +25,15 @@ elif IH > 3 and IH <= 11
 
 	Iron_value= 0.5
 #color area n
-elif 
-	if 
-		Iron_value=
-	elif
-		Iron_value=
+elif IH > 11 and IH <= 20
+	if IS > 12 and IS <= 16
+		Iron_value= 0.5
+	elif IS > 20 and IS <= 26
+		Iron_value= 1.0
+	elif IS > 33 and IS <= 38
+		Iron_value= 3.0
 	else 
-		Iron_value= 
+		Iron_value = 5.0
 
 else
 	Iron_value = [1000 ,'error. please manually inspect image for any opjects obstructing camera view or skewing color detection']
