@@ -3,10 +3,20 @@ import imutils
 import cv2
 import numpy as np
 
+from time import sleep
+from picamera import PiCamera
+
+camera = PiCamera()
+camera.resolution = (1024, 768) #not sure about the resolution, kept it the same from the website
+camera.start_preview()
+# Camera warm-up time
+sleep(60)
+camera.capture('teststrip.jpg')
+
 # load the image, convert it to grayscale, blur it slightly,
 # and threshold it
 
-scan = cv2.imread('Photos/dirty.jpg',cv2.IMREAD_UNCHANGED) 
+scan = cv2.imread('Photos/teststrip.jpg',cv2.IMREAD_UNCHANGED) 
 
 scale_percent = 60 # percent of original size
 width = int(scan.shape[1] * scale_percent / 100)
