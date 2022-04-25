@@ -163,7 +163,7 @@ c2_Merc_RGB = cld[1][2]
 c2_Brom_RGB = cld[2][2]
 c2_Iron_RGB = cld[3][2]
 c2_Lead_RGB = cld[4][2]
-c1_Copp_RGB = cld[5][2]
+c2_Copp_RGB = cld[5][2]
 
 
 c2_Ph_HSV   = cld[0][3]
@@ -171,7 +171,7 @@ c2_Merc_HSV = cld[1][3]
 c2_Brom_HSV = cld[2][3]
 c2_Iron_HSV = cld[3][3]
 c2_Lead_HSV = cld[4][3]
-c1_Copp_HSV = cld[5][3]
+c2_Copp_HSV = cld[5][3]
 
 
 
