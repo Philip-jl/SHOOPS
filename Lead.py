@@ -1,46 +1,82 @@
 import cv2 as cv
 import numpy as np
 import argparse as arg
-from MainSS import Lead_RGB 
-from MainSS import Lead_HSV
+from MainSS_Dirty import c2_Lead_RGB 
+from MainSS_Dirty import c2_Lead_HSV
+from MainSS_Clean import c1_Lead_RGB 
+from MainSS_Clean import c1_Lead_HSV
 
-LH = Lead_HSV[0]
-LS = Lead_HSV[1]
-LV = Lead_HSV[2]
-Lr = Lead_RGB[0]
-Lg = Lead_RGB[1]
-Lb = Lead_RGB[2]
+LHC = c1_Lead_HSV[0]
+LHD = c2_Lead_HSV[0]
+
 
 #color area 1
-if LH > 30 and LH < 43:
+if LHC > 30 and LHC < 43:
 	#number of if and elif will be deternimed by how many tabs are in the color area
-	if LH > 30 and LH < 35:
-		Lead_value= 0
-	elif LH >= 35 and LH <= 43:
-		Lead_value= 5
+	if LHC > 30 and LHC < 35:
+		c1_Lead_value= 0
+	elif LHC >= 35 and LHC <= 43:
+		c1_Lead_value= 5
 	else:
 		#value will be in the general range of where it is at
-		Lead_value= 5
+		c1_Lead_value= 5
 #color area 2 
-elif LH > 15 and LH < 25:
-	if LH >= 18 and LH <= 22  :
-		Lead_value= 15 #if lower hue higher concentrate?
-	elif LH >= 22 and LH <= 25:
-		Lead_value= 15
+elif LHC > 15 and LHC < 25:
+	if LHC >= 18 and LHC <= 22  :
+		c1_Lead_value= 15 #if lower hue higher concentrate?
+	elif LHC >= 22 and LHC <= 25:
+		c1_Lead_value= 15
 	else :
-		Lead_value= 15
+		c1_Lead_value= 15
 #color area n
-elif LH > 0 and LH < 10: 
-	if LH > 0 and LH < 10 :
-		Lead_value= 30
+elif LHC > 0 and LHC < 10: 
+	if LHC > 0 and LHC < 10 :
+		c1_Lead_value= 30
 	else:
-		Lead_value= 30
-elif LH > 340 and LH < 350: 
-	if LH > 340 and LH < 350:
-		Lead_value= 50
+		c1_Lead_value= 30
+elif LHC > 340 and LHC < 350: 
+	if LHC > 340 and LHC < 350:
+		c1_Lead_value= 50
 	else:
-		Lead_value= 50
+		c1_Lead_value= 50
 else:
-	Lead_value = [1000 ,'error. please manually inspect image for any opjects obstructing camera view or skewing color detection']
-print("lead value is", Lead_value)
+	c1_Lead_value = [1000 ,'error']
+
+
+
+
+#color area 1
+if LHD > 30 and LHD < 43:
+	#number of if and elif will be deternimed by how many tabs are in the color area
+	if LHD > 30 and LHD < 35:
+		c2_Lead_value= 0
+	elif LHD >= 35 and LHD <= 43:
+		c2_Lead_value= 5
+	else:
+		#value will be in the general range of where it is at
+		c2_Lead_value= 5
+#color area 2 
+elif LHD > 15 and LHD < 25:
+	if LHD >= 18 and LHD <= 22  :
+		c2_Lead_value= 15 #if lower hue higher concentrate?
+	elif LHD >= 22 and LHD <= 25:
+		c2_Lead_value= 15
+	else :
+		c2_Lead_value= 15
+#color area n
+elif LHD > 0 and LHD < 10: 
+	if LHD > 0 and LHD < 10 :
+		c2_Lead_value= 30
+	else:
+		c2_Lead_value= 30
+elif LHD > 340 and LHD < 350: 
+	if LHD > 340 and LHD < 350:
+		c2_Lead_value= 50
+	else:
+		c2_Lead_value= 50
+else:
+	c2_Lead_value = [1000 ,'error']
+
+#print(c1_Lead_value)
+#print(c2_Lead_value)
 

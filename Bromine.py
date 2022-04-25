@@ -1,33 +1,51 @@
 import cv2 as cv
 import numpy as np
 import argparse as arg
-from MainSS import Brom_RGB 
-from MainSS import Brom_HSV 
+from MainSS_Dirty import c2_Brom_RGB 
+from MainSS_Dirty import c2_Brom_HSV 
+from MainSS_Clean import c1_Brom_RGB 
+from MainSS_Clean import c1_Brom_HSV 
 
-BH = Brom_HSV[0]
-BS = Brom_HSV[1]
-BV = Brom_HSV[2]
-Br = Brom_RGB[0]
-Bg = Brom_RGB[1]
-Bb = Brom_RGB[2]
+BHC = c1_Brom_HSV[0]
+BSC = c1_Brom_HSV[1]
+BHD = c2_Brom_HSV[0]
+BSD = c2_Brom_HSV[1]
+
 
 #color area 1
-if BH > 250 and BH <= 266: 
-	Brom_value = 0 
-	
+if BHC > 250 and BHC <= 266: 
+	c1_Brom_value = 0 	
 #color area 2 
-elif BH > 200 and BH < 210:
+elif BHC > 200 and BHC < 210:
 	
-	if BS > 6 and BS <= 20:
-		Brom_value= 1
-	elif BS > 25 and BS <= 39:
-		Brom_value= 5
-	elif BS > 66 and BS <= 80:
-		Brom_value= 10
-	else 
-		Brom_value= 20
+	if BSC > 6 and BSC <= 20:
+		c1_Brom_value= 1
+	elif BSC > 25 and BSC <= 39:
+		c1_Brom_value= 5
+	elif BSC > 66 and BSC <= 80:
+		c1_Brom_value= 10
+	else:
+		c1_Brom_value= 20
+else:
+	c1_Brom_value = [1000 ,'error']
 
 
+#color area 1
+if BHD > 250 and BHD <= 266: 
+	c2_Brom_value = 0 	
+#color area 2 
+elif BHD > 200 and BHD < 210:
+	
+	if BSD > 6 and BSD <= 20:
+		c2_Brom_value= 1
+	elif BSD > 25 and BSD <= 39:
+		c2_Brom_value= 5
+	elif BSD > 66 and BSD <= 80:
+		c2_Brom_value= 10
+	else:
+		c2_Brom_value= 20
+else:
+	c2_Brom_value = [1000 ,'error']
 
-else
-	Brom_value = [1000 ,'error. please manually inspect image for any opjects obstructing camera view or skewing color detection']
+#print(c1_Brom_value)
+#print(c2_Brom_value)

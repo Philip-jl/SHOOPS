@@ -159,28 +159,28 @@ cl2.sort(key=sort_key)
 clc= cl1 + cl2 #combined lists
 
 #cl1
-c1_Ph_RGB   = clc[0][2]
-c1_Merc_RGB = clc[1][2]
-c1_Brom_RGB = clc[2][2]
-c1_Iron_RGB = clc[3][2]
-c1_Lead_RGB = clc[4][2]
-c1_Copp_RGB = clc[5][2]
+c1_Iron_RGB = clc[0][2]
+c1_Lead_RGB = clc[1][2]
+c1_Copp_RGB = clc[2][2]
+c1_Ph_RGB   = clc[3][2]
+c1_Merc_RGB = clc[4][2]
+c1_Brom_RGB = clc[5][2]
 
-
-c1_Ph_HSV   = clc[0][3]
-c1_Merc_HSV = clc[1][3]
-c1_Brom_HSV = clc[2][3]
-c1_Iron_HSV = clc[3][3]
-c1_Lead_HSV = clc[4][3]
-c1_Copp_HSV = clc[5][3]
+c1_Iron_HSV = clc[0][3]
+c1_Lead_HSV = clc[1][3]
+c1_Copp_HSV = clc[2][3]
+c1_Ph_HSV   = clc[3][3]
+c1_Merc_HSV = clc[4][3]
+c1_Brom_HSV = clc[5][3]
 
 
 #print(*cl1, sep = "\n")
 #print(*cl2, sep = "\n")
-print(*clc, sep = "\n")
+#print(*clc, sep = "\n")
 #print("red")   print(*r, sep = "\n")   print("green")  print(*g, sep = "\n")   print("blue")   print(*b, sep = "\n")
 # Show the output image
 cv2.imshow("Image1", c1)
 cv2.imshow('thresh1',thresh1)
 #cv2.imshow('Blurred',blurred)
 cv2.waitKey(0)
+
