@@ -24,27 +24,27 @@ def simplest_cb(img, percent=1):
         out_channels.append(cv2.LUT(channel, lut.astype('uint8')))
     return cv2.merge(out_channels)
 
-img=cv2.imread('Photos/watertestimage2.jpg')
+img=cv2.imread('SHOOPS_Output.jpg')
 imgg = simplest_cb(img, 1)
 
 #Cropping image
-c1 = imgg[670:810, 320:550] # Slicing to crop the image
-c2 = imgg[270:410, 820:1050] # Slicing to crop the image
+c1 = imgg[690:850,150:400] # Slicing to crop the image
+#c2 = imgg[280:440,600:840] # Slicing to crop the image
 
 #Greyscale
 grey1 = cv2.cvtColor(c1, cv2.COLOR_BGR2GRAY)
-grey2 = cv2.cvtColor(c2, cv2.COLOR_BGR2GRAY)
+#grey2 = cv2.cvtColor(c2, cv2.COLOR_BGR2GRAY)
 
 #Adjusting brightness and contrast formated from https://stackoverflow.com/questions/39308030/how-do-i-increase-the-contrast-of-an-image-in-python-opencv 
-alpha = 1.5 # Contrast control (1.0-3.0)
-beta = 23 # Brightness control (0-100)
+alpha = 1 # Contrast control (1.0-3.0)
+beta = 10 # Brightness control (0-100)
 
 adj1 = cv2.convertScaleAbs(grey1, alpha=alpha, beta=beta)
-adj2 = cv2.convertScaleAbs(grey2, alpha=alpha, beta=beta)
+#adj2 = cv2.convertScaleAbs(grey2, alpha=alpha, beta=beta)
 
 #Bluring
 blurred1 = cv2.GaussianBlur(adj1, (0, 0), cv2.BORDER_DEFAULT)
-blurred2 = cv2.GaussianBlur(adj2, (0, 0), cv2.BORDER_DEFAULT)
+#blurred2 = cv2.GaussianBlur(adj2, (0, 0), cv2.BORDER_DEFAULT)
 #blurred = cv2.blur(blurred1, (8, 4), cv2.BORDER_DEFAULT) #extra blur if needed
 
 #Sharpening
@@ -53,17 +53,17 @@ sharpen_kernel = np.array([[-1,-1,-1],
                            [-1,-1,-1]])
 
 sharpen1 = cv2.filter2D(blurred1, -1, sharpen_kernel)
-sharpen2 = cv2.filter2D(blurred2, -1, sharpen_kernel)
+#sharpen2 = cv2.filter2D(blurred2, -1, sharpen_kernel)
 
 #Thresholding
 thresh1 = cv2.adaptiveThreshold(blurred1,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,23,-2)
-thresh2 = cv2.adaptiveThreshold(blurred2,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,23,-2)
+#thresh2 = cv2.adaptiveThreshold(blurred2,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,23,-2)
 #trash, thresh = cv2.threshold(adj, 127,255,cv2.THRESH_BINARY) # different thresholding method 
 
 #Morphological transformations
 Mkernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3,3))
 close1 = cv2.morphologyEx(thresh1, cv2.MORPH_CLOSE, Mkernel, iterations=2)
-close2 = cv2.morphologyEx(thresh2, cv2.MORPH_CLOSE, Mkernel, iterations=2)
+#close2 = cv2.morphologyEx(thresh2, cv2.MORPH_CLOSE, Mkernel, iterations=2)
 
 
 #Find contours in the thresholded image
@@ -179,6 +179,7 @@ c1_Brom_HSV = clc[5][3]
 #print(*clc, sep = "\n")
 #print("red")   print(*r, sep = "\n")   print("green")  print(*g, sep = "\n")   print("blue")   print(*b, sep = "\n")
 # Show the output image
+cv2.imshow("Imgg", img)
 cv2.imshow("Image1", c1)
 cv2.imshow('thresh1',thresh1)
 #cv2.imshow('Blurred',blurred)

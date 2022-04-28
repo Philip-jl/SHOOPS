@@ -16,7 +16,7 @@ BSD = c2_Brom_HSV[1]
 if BHC > 250 and BHC <= 266: 
 	c1_Brom_value = 0 	
 #color area 2 
-elif BHC > 200 and BHC < 210:
+elif BHC > 200 and BHC < 220:
 	
 	if BSC > 6 and BSC <= 20:
 		c1_Brom_value= 1
@@ -34,7 +34,7 @@ else:
 if BHD > 250 and BHD <= 266: 
 	c2_Brom_value = 0 	
 #color area 2 
-elif BHD > 200 and BHD < 210:
+elif BHD > 200 and BHD < 220:
 	
 	if BSD > 6 and BSD <= 20:
 		c2_Brom_value= 1

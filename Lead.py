@@ -13,7 +13,7 @@ LHD = c2_Lead_HSV[0]
 #color area 1
 if LHC > 30 and LHC < 43:
 	#number of if and elif will be deternimed by how many tabs are in the color area
-	if LHC > 30 and LHC < 35:
+	if LHC > 27 and LHC < 35:
 		c1_Lead_value= 0
 	elif LHC >= 35 and LHC <= 43:
 		c1_Lead_value= 5
@@ -21,7 +21,7 @@ if LHC > 30 and LHC < 43:
 		#value will be in the general range of where it is at
 		c1_Lead_value= 5
 #color area 2 
-elif LHC > 15 and LHC < 25:
+elif LHC > 11 and LHC < 26:
 	if LHC >= 18 and LHC <= 22  :
 		c1_Lead_value= 15 #if lower hue higher concentrate?
 	elif LHC >= 22 and LHC <= 25:

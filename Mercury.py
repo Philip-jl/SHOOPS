@@ -41,7 +41,7 @@ elif MHC >= 277 and MHC <= 293:
 		c1_Merc_value = 0.02
 	else:
 		c1_Merc_value=0.02
-elif MHC >= 250 and MHC <= 260:
+elif MHC >= 240 and MHC <= 260:
 	if MrC <= 90 and MrC >= 103:
 		c1_Merc_value = 0.04
 	elif MrC <= 48 and MrC >= 60:
@@ -73,7 +73,7 @@ elif MHD >= 277 and MHD <= 293:
 		c2_Merc_value = 0.02
 	else:
 		c2_Merc_value=0.02
-elif MHD >= 250 and MHD <= 260:
+elif MHD >= 240 and MHD <= 260:
 	if MrD <= 90 and MrD >= 103:
 		c2_Merc_value = 0.04
 	elif MrD <= 48 and MrD >= 60:

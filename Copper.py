@@ -11,12 +11,12 @@ CHD = c2_Copp_HSV[0]
 if CHC > 40 and CHC <= 50:
 	c1_Copp_value= 0
 #color area 2 
-elif CHC >= 30 and CHC <= 40:
+elif CHC >= 20 and CHC <= 40:
 	c1_Copp_value= 1
 #color area n
 elif CHC >= 70 and CHC <=80:
 	c1_Copp_value= 10
-elif CHC >= 200 and CHC <= 212:
+elif CHC >= 190 and CHC <= 212:
 	c1_Copp_value= 30
 #color area n
 elif CHC > 212 and CHC <220:
@@ -30,12 +30,12 @@ else:
 if CHD > 40 and CHD <= 50:
 	c2_Copp_value= 0
 #color area 2 
-elif CHD >= 30 and CHD <= 40:
+elif CHD >= 20 and CHD <= 40:
 	c2_Copp_value= 1
 #color area n
 elif CHD >= 70 and CHD <=80:
 	c2_Copp_value= 10
-elif CHD >= 200 and CHD <= 212:
+elif CHD >= 190 and CHD <= 212:
 	c2_Copp_value= 30
 #color area n
 elif CHD > 212 and CHD <220:

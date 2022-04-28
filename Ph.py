@@ -14,9 +14,9 @@ PHC = c1_Ph_HSV[0]
 
 
 #red (2)
-if PHC > 350 and PHC < 360: 
+if PHC > 340 and PHC < 360: 
 	#number of if and elif will be deternimed by how many tabs are in the color area
-	if PHC > 350 and PHC < 355:
+	if PHC > 340 and PHC < 355:
 		c1_Ph_value=6.0
 	elif PHC > 355 and PHC < 360:
 		c1_Ph_value=6.5
@@ -51,9 +51,9 @@ else:
 
 
 #red (2)
-if PHD > 350 and PHD < 360: 
+if PHD > 340 and PHD < 360: 
 	#number of if and elif will be deternimed by how many tabs are in the color area
-	if PHD > 350 and PHD < 355:
+	if PHD > 340 and PHD < 355:
 		c2_Ph_value=6.0
 	elif PHD > 355 and PHD < 360:
 		c2_Ph_value=6.5

@@ -24,20 +24,20 @@ def simplest_cb(img, percent=1):
         out_channels.append(cv2.LUT(channel, lut.astype('uint8')))
     return cv2.merge(out_channels)
 
-img=cv2.imread('Photos/watertestimage2.jpg')
+img=cv2.imread('SHOOPS_Output.jpg')
 imgg = simplest_cb(img, 1)
 
 #Cropping image
 
-c2 = imgg[270:400, 820:1050] # Slicing to crop the image
+c2 = imgg[280:420,600:840] # Slicing to crop the image
 
 #Greyscale
 
 grey2 = cv2.cvtColor(c2, cv2.COLOR_BGR2GRAY)
 
 #Adjusting brightness and contrast formated from https://stackoverflow.com/questions/39308030/how-do-i-increase-the-contrast-of-an-image-in-python-opencv 
-alpha = 1.5 # Contrast control (1.0-3.0)
-beta = 23 # Brightness control (0-100)
+alpha = 1 # Contrast control (1.0-3.0)
+beta = 10 # Brightness control (0-100)
 
 
 adj2 = cv2.convertScaleAbs(grey2, alpha=alpha, beta=beta)
