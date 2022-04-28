@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+   <head>
+      <title>SHOOPS</title>
+   </head>
+   <style> 
+   .button {
+	   border:none;
+	color: white;
+	padding: 15px 32px;
+	display: inline-block;
+	font-size: 18px;
+	cursor: pointer;
+	}
+	.button1 {background-color: #4CAF50;}
+	.button2 {background-color: #5dc3e7;}
+	.button3 {background-color: #e21f0a;}
+   </style>
+   <body>
+      <h1>Smart H2O Pollution Solution</h1>
+      <h2>Press button to start program</h2>
+      <center> 
+	<form action="/start/" method="post">
+      <div> 
+      <button name = "startBtn" type= "submit"class = "button button1" > Start</button>
+      </div>
+      </form>
+      <p> </p>
+      <form action="/filter/" method="post">
+      <div>
+      <button name= "filterBtn"class = "button button2" > Filter Only</button>
+      </div>
+      </form>
+      <p> </p>
+      <form action="/stop/" method = "post">
+      <div>
+      <button name= "stopBtn"class = "button button3" > STOP</button>
+      </div>
+      </form>
+      <p> </p>
+      </center>
+   </body>
+</html>

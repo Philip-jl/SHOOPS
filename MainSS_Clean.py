@@ -28,7 +28,7 @@ img=cv2.imread('SHOOPS_Output.jpg')
 imgg = simplest_cb(img, 1)
 
 #Cropping image
-c1 = imgg[690:850,150:400] # Slicing to crop the image
+c1 = imgg[680:860,350:600] # Slicing to crop the image
 #c2 = imgg[280:440,600:840] # Slicing to crop the image
 
 #Greyscale
@@ -159,6 +159,7 @@ cl2.sort(key=sort_key)
 clc= cl1 + cl2 #combined lists
 
 #cl1
+
 c1_Iron_RGB = clc[0][2]
 c1_Lead_RGB = clc[1][2]
 c1_Copp_RGB = clc[2][2]
