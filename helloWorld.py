@@ -17,13 +17,13 @@ def run_script():
 
 @app.route("/filter/", methods=['POST'])
 def run_filter():
-    file = open(r'/home/pi/SHOOPS/RelayCon_SHOOPS.py','r').read()
+    file = open(r'RelayCon_SHOOPS.py','r').read()
     exec(file)
     return render_template('index.html')
 
 @app.route("/stop/", methods=['POST'])
 def run_stop():
-    file = open(r'/home/pi/SHOOPS/GPIO_cleanup.py','r').read()
+    file = open(r'GPIO_cleanup.py','r').read()
     exec(file)
     return render_template('index.html')
 
